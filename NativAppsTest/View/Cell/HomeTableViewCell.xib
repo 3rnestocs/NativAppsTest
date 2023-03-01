@@ -24,13 +24,13 @@
                                 <rect key="frame" x="8" y="12" width="304" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-9F-Qvp">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="232" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXi-nj-RAF">
-                                        <rect key="frame" x="208" y="0.0" width="60" height="66"/>
+                                        <rect key="frame" x="244" y="0.0" width="60" height="66"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jmk-UR-hY6">
                                                 <rect key="frame" x="0.0" y="3" width="60" height="60"/>
@@ -50,8 +50,8 @@
                                             <constraint firstItem="Jmk-UR-hY6" firstAttribute="centerY" secondItem="sXi-nj-RAF" secondAttribute="centerY" id="n8Q-PI-Qfx"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahg-v7-hcW">
-                                        <rect key="frame" x="280" y="0.0" width="24" height="66"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahg-v7-hcW">
+                                        <rect key="frame" x="304" y="0.0" width="24" height="66"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-zd-JLg">
                                                 <rect key="frame" x="4" y="25" width="20" height="16.333333333333329"/>

@@ -28,6 +28,8 @@ class HomeViewModel {
     }
     
     func getReports() -> [Report] {
-        self.reports ?? []
+        self.reports?.sorted(by: {
+            $0.createdAt > $1.createdAt
+        }) ?? []
     }
 }
