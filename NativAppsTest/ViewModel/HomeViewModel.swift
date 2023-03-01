@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class HomeViewModel {
+    private var reports: [Report] = [] {
+        didSet {
+            
+        }
+    }
+    
+    func getReports() -> [Report] {
+        self.reports
+    }
+}
