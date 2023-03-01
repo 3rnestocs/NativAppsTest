@@ -18,6 +18,8 @@
 		8D8D289A29AFAE2A00A63E57 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D289829AFAE2A00A63E57 /* HomeTableViewCell.swift */; };
 		8D8D289B29AFAE2A00A63E57 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D289929AFAE2A00A63E57 /* HomeTableViewCell.xib */; };
 		8D8D289D29AFB8EF00A63E57 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D289C29AFB8EF00A63E57 /* Extensions.swift */; };
+		8D8D289F29AFBB2000A63E57 /* AddReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D289E29AFBB2000A63E57 /* AddReportViewController.swift */; };
+		8D8D28A229AFC00E00A63E57 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D28A129AFC00E00A63E57 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		8D8D289829AFAE2A00A63E57 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		8D8D289929AFAE2A00A63E57 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		8D8D289C29AFB8EF00A63E57 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8D8D289E29AFBB2000A63E57 /* AddReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewController.swift; sourceTree = "<group>"; };
+		8D8D28A129AFC00E00A63E57 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		8D8D287929AFA35F00A63E57 /* NativAppsTest */ = {
 			isa = PBXGroup;
 			children = (
+				8D8D28A029AFBFFF00A63E57 /* Utils */,
 				8D8D287A29AFA35F00A63E57 /* AppDelegate.swift */,
 				8D8D287C29AFA35F00A63E57 /* SceneDelegate.swift */,
 				8D8D288329AFA36800A63E57 /* Assets.xcassets */,
@@ -73,7 +78,6 @@
 				8D8D289029AFAB9C00A63E57 /* Model */,
 				8D8D288F29AFAB9000A63E57 /* View */,
 				8D8D288E29AFAB8900A63E57 /* ViewModel */,
-				8D8D289C29AFB8EF00A63E57 /* Extensions.swift */,
 			);
 			path = NativAppsTest;
 			sourceTree = "<group>";
@@ -92,6 +96,7 @@
 				8D8D289729AFAE1700A63E57 /* Cell */,
 				8D8D289129AFABA700A63E57 /* Storyboard */,
 				8D8D287E29AFA35F00A63E57 /* HomeViewController.swift */,
+				8D8D289E29AFBB2000A63E57 /* AddReportViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +125,15 @@
 				8D8D289929AFAE2A00A63E57 /* HomeTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8D8D28A029AFBFFF00A63E57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8D8D289C29AFB8EF00A63E57 /* Extensions.swift */,
+				8D8D28A129AFC00E00A63E57 /* TextField.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +212,9 @@
 				8D8D287F29AFA35F00A63E57 /* HomeViewController.swift in Sources */,
 				8D8D287B29AFA35F00A63E57 /* AppDelegate.swift in Sources */,
 				8D8D287D29AFA35F00A63E57 /* SceneDelegate.swift in Sources */,
+				8D8D289F29AFBB2000A63E57 /* AddReportViewController.swift in Sources */,
 				8D8D289629AFACC000A63E57 /* HomeViewModel.swift in Sources */,
+				8D8D28A229AFC00E00A63E57 /* TextField.swift in Sources */,
 				8D8D289429AFAC0B00A63E57 /* Report.swift in Sources */,
 				8D8D289D29AFB8EF00A63E57 /* Extensions.swift in Sources */,
 			);

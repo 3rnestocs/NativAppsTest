@@ -31,6 +31,11 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: UIButton) {
+        guard let addReportVC = getVC(.addReportVC) as? AddReportViewController else { return }
+        if let sheet = addReportVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        self.present(addReportVC, animated: true, completion: nil)
     }
     
 }

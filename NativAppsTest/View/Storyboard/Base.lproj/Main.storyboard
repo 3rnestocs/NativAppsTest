@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,8 +82,132 @@
             </objects>
             <point key="canvasLocation" x="-63" y="-27"/>
         </scene>
+        <!--Add Report View Controller-->
+        <scene sceneID="8CW-0N-86j">
+            <objects>
+                <viewController storyboardIdentifier="AddReportViewController" modalPresentationStyle="formSheet" id="LXP-Ko-Sj1" customClass="AddReportViewController" customModule="NativAppsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uHH-wV-2Bk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agregar registro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FT-Lg-gDT">
+                                <rect key="frame" x="126.00000000000001" y="83" width="141.33333333333337" height="21.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CIx-Vf-9as">
+                                <rect key="frame" x="12" y="128.66666666666666" width="369" height="80.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escribe tu descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cG-NmR">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descripción" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d0c-TN-EXH" customClass="TextField" customModule="NativAppsTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="32.333333333333343" width="369" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="4RL-4b-pgi"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="06m-57-ETT">
+                                <rect key="frame" x="59" y="233" width="275" height="180"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thP-Wu-0DM">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="120"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WA2-nL-Mpg">
+                                                <rect key="frame" x="77.666666666666657" y="1" width="120" height="118.66666666666667"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="KO1-Dp-VQW"/>
+                                                    <constraint firstAttribute="width" constant="120" id="mfq-ru-lAf"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="WA2-nL-Mpg" firstAttribute="centerX" secondItem="thP-Wu-0DM" secondAttribute="centerX" id="POv-vh-Lay"/>
+                                            <constraint firstAttribute="bottom" secondItem="WA2-nL-Mpg" secondAttribute="bottom" id="efo-0W-1jw"/>
+                                            <constraint firstItem="WA2-nL-Mpg" firstAttribute="top" secondItem="thP-Wu-0DM" secondAttribute="top" id="zdt-d2-vqG"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SA-Ge-O9W">
+                                        <rect key="frame" x="0.0" y="132" width="275" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Bvx-u0-tqP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Toma una foto">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="imageButtonTapped:" destination="LXP-Ko-Sj1" eventType="touchUpInside" id="4tK-6m-fKt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eW-9e-Fgh">
+                                <rect key="frame" x="118" y="437" width="157" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="qg5-7I-fOy"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Guardar registro">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="LXP-Ko-Sj1" eventType="touchUpInside" id="Hic-1b-1Cp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QUx-xk-lhx"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CIx-Vf-9as" firstAttribute="leading" secondItem="QUx-xk-lhx" secondAttribute="leading" constant="12" id="2eZ-id-Ijv"/>
+                            <constraint firstItem="QUx-xk-lhx" firstAttribute="trailing" secondItem="CIx-Vf-9as" secondAttribute="trailing" constant="12" id="C9o-mW-KoO"/>
+                            <constraint firstItem="2eW-9e-Fgh" firstAttribute="centerX" secondItem="QUx-xk-lhx" secondAttribute="centerX" id="Cf7-s3-67X"/>
+                            <constraint firstItem="QUx-xk-lhx" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2eW-9e-Fgh" secondAttribute="bottom" constant="24" id="Gw6-ge-bfj"/>
+                            <constraint firstItem="1FT-Lg-gDT" firstAttribute="top" secondItem="QUx-xk-lhx" secondAttribute="top" constant="24" id="Kkd-h2-0Nn"/>
+                            <constraint firstItem="06m-57-ETT" firstAttribute="top" secondItem="CIx-Vf-9as" secondAttribute="bottom" constant="24" id="P03-Ea-eXC"/>
+                            <constraint firstItem="06m-57-ETT" firstAttribute="centerX" secondItem="uHH-wV-2Bk" secondAttribute="centerX" id="R0p-9k-Neh"/>
+                            <constraint firstItem="2eW-9e-Fgh" firstAttribute="width" secondItem="uHH-wV-2Bk" secondAttribute="width" multiplier="0.4" id="SGQ-vi-Izg"/>
+                            <constraint firstItem="2eW-9e-Fgh" firstAttribute="top" secondItem="06m-57-ETT" secondAttribute="bottom" constant="24" id="VAr-OO-F4X"/>
+                            <constraint firstItem="1FT-Lg-gDT" firstAttribute="centerX" secondItem="uHH-wV-2Bk" secondAttribute="centerX" id="YFB-IB-xrE"/>
+                            <constraint firstItem="CIx-Vf-9as" firstAttribute="top" secondItem="1FT-Lg-gDT" secondAttribute="bottom" constant="24" id="aFd-Ue-75I"/>
+                            <constraint firstItem="3SA-Ge-O9W" firstAttribute="width" secondItem="uHH-wV-2Bk" secondAttribute="width" multiplier="0.7" id="id9-wx-eTp"/>
+                        </constraints>
+                    </view>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="OEH-cG-NmR" id="96O-9H-L2e"/>
+                        <outlet property="descriptionTextField" destination="d0c-TN-EXH" id="AyS-8z-ebG"/>
+                        <outlet property="imageButton" destination="3SA-Ge-O9W" id="yC8-5Z-ahI"/>
+                        <outlet property="imageContainerView" destination="thP-Wu-0DM" id="ZBH-Pj-103"/>
+                        <outlet property="imageView" destination="WA2-nL-Mpg" id="LsU-bc-286"/>
+                        <outlet property="saveButton" destination="2eW-9e-Fgh" id="ueh-K1-ZEe"/>
+                        <outlet property="titleLabel" destination="1FT-Lg-gDT" id="ClY-bK-lbU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPJ-s9-g6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="-27"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
         <image name="cross.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -20,3 +20,14 @@ extension UITableView {
         self.backgroundView = messageLabel
     }
 }
+
+extension UIViewController {
+    enum ControllerName: String {
+        case addReportVC = "AddReportViewController"
+    }
+    
+    func getVC(_ vc: ControllerName) -> UIViewController {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vc.rawValue)
+        return viewController
+    }
+}
