@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: HomeTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
     }
 
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.getReports().count
+        viewModel.dummyReports().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,8 +45,16 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setupCell(viewModel.getReports()[indexPath.row])
+        cell.setupCell(viewModel.dummyReports()[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        76
     }
 }
 

@@ -13,7 +13,8 @@ class HomeTableViewCell: UITableViewCell {
     static let cellIdentifier = String(describing: HomeTableViewCell.self)
     
     // MARK: - Outlets
-    @IBOutlet private(set) weak var textView: UITextView!
+    @IBOutlet private(set) weak var reportLabel: UILabel!
+    @IBOutlet private(set) weak var imageContainerView: UIView!
     @IBOutlet private(set) weak var reportImageView: UIImageView!
     
     // MARK: - Properties
@@ -25,9 +26,11 @@ class HomeTableViewCell: UITableViewCell {
     
     // MARK: - Setup
     func setupCell(_ report: Report) {
-        self.textView.text = report.description
+        self.reportLabel.text = report.description
         if let image = report.image {
             self.reportImageView.image = UIImage(named: image)
+        } else {
+            self.imageContainerView.isHidden = true
         }
     }
 }

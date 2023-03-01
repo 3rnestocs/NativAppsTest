@@ -8,10 +8,27 @@
 import Foundation
 
 class HomeViewModel {
+    
     private var reports: [Report] = [] {
         didSet {
             
         }
+    }
+    
+    func dummyReports() -> [Report] {
+        [
+            Report(description: "Esto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcion"),
+            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
+        ]
+    }
+    
+    init() {
+        self.reports = dummyReports()
     }
     
     func getReports() -> [Report] {
