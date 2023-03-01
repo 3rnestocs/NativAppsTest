@@ -8,7 +8,7 @@
 import Foundation
 
 struct Report: Codable {
-    var image: String?
+    var image: Data?
     var description: String
     var createdAt: Date = Date()
 }

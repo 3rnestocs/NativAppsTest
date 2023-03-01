@@ -9,29 +9,25 @@ import Foundation
 
 class HomeViewModel {
     
-    private var reports: [Report] = [] {
+    var reportCompletion: (() -> Void)?
+    
+    private var reports: [Report]? {
         didSet {
-            
+            self.reportCompletion?()
         }
     }
     
-    func dummyReports() -> [Report] {
-        [
-            Report(description: "Esto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcion"),
-            Report(description: "Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion"),
-        ]
+    init() {
+        self.reports = Cacher.get(Report.self, key: .report)
     }
     
-    init() {
-//        self.reports = dummyReports()
+    func updateReports() {
+        if let updatedReports = Cacher.get(Report.self, key: .report) {
+            self.reports = updatedReports
+        }
     }
     
     func getReports() -> [Report] {
-        self.reports
+        self.reports ?? []
     }
 }

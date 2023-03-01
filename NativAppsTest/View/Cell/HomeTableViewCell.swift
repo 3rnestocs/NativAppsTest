@@ -17,18 +17,17 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var imageContainerView: UIView!
     @IBOutlet private(set) weak var reportImageView: UIImageView!
     
-    // MARK: - Properties
-    
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        reportImageView.layer.cornerRadius = 30
     }
     
     // MARK: - Setup
     func setupCell(_ report: Report) {
-        self.reportLabel.text = report.description
-        if let image = report.image {
-            self.reportImageView.image = UIImage(named: image)
+        self.reportLabel.text = report.description.firstCapitalized
+        if let data = report.image {
+            self.reportImageView.image = UIImage(data: data)
         } else {
             self.imageContainerView.isHidden = true
         }

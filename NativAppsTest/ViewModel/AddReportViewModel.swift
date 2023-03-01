@@ -8,30 +8,26 @@
 import Foundation
 
 class AddReportViewModel {
-    var report: Report? {
-        didSet {
-            updateReportLocally()
-        }
-    }
+    private var report: Report?
     
     private func updateReportLocally() {
         if let report = self.report {
-            print("T3ST saving", report)
             Cacher.save(report, type: .report)
+            NotificationCenter.default.post(name: .didSaveReport, object: nil)
         }
     }
     
     func saveReport(_ image: Data?, description: String?) {
         if let data = image, let text = description {
             let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM-d-yyyy"
-            let url = documents.appendingPathComponent("\(formatter.string(from: Date())).png")
+            let url = documents.appendingPathComponent("\(UUID().uuidString).png" )
             do {
                 try data.write(to: url)
-                self.report = Report(image: url.absoluteString, description: text)
+                let imageData = try Data(contentsOf: url)
+                self.report = Report(image: imageData, description: text)
+                self.updateReportLocally()
             } catch {
-                print("Unable to Write Data to Disk (\(error))")
+                print("Unable to Write Data to Disk (\(error.localizedDescription))")
             }
         }
     }

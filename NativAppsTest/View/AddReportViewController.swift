@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddReportViewControllerDelegate: AnyObject {
+    func didSave()
+}
+
 class AddReportViewController: UIViewController {
 
     // MARK: - Outlet
@@ -17,8 +21,8 @@ class AddReportViewController: UIViewController {
     @IBOutlet private(set) weak var imageView: UIImageView!
     @IBOutlet private(set) weak var saveButton: UIButton!
     @IBOutlet private(set) weak var imageContainerView: UIView!
-    @IBOutlet weak var descriptionAlertLabel: UILabel!
-    @IBOutlet weak var imageAlertLabel: UILabel!
+    @IBOutlet private(set) weak var descriptionAlertLabel: UILabel!
+    @IBOutlet private(set) weak var imageAlertLabel: UILabel!
     
     private var currentImage: UIImage? {
         didSet {
@@ -28,6 +32,7 @@ class AddReportViewController: UIViewController {
         }
     }
     private var viewModel = AddReportViewModel()
+    weak var delegate: AddReportViewControllerDelegate?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,7 +42,12 @@ class AddReportViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
+        setupObserver()
         self.setupUI()
+    }
+    
+    private func setupObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSave(_:)), name: .didSaveReport, object: nil)
     }
     
     private func setupUI() {
@@ -78,6 +88,12 @@ class AddReportViewController: UIViewController {
     // MARK: - Helpers
     
     // MARK: - Actions
+    @objc private func handleSave(_ notification: Notification) {
+        print("T3ST saved")
+        self.delegate?.didSave()
+        self.dismiss(animated: true)
+    }
+    
     @objc private func viewTapped() {
         self.view.endEditing(true)
     }

@@ -13,19 +13,24 @@ enum CacheType: String {
 
 struct Cacher {
     static func save<T: Codable>(_ value: T, type: CacheType) {
-        UserDefaults.standard.set(
-            try? PropertyListEncoder().encode(value), forKey: type.rawValue
-        )
+        if var values = get(T.self, key: type) {
+            values.append(value)
+            UserDefaults.standard.set(
+                try? PropertyListEncoder().encode(values), forKey: type.rawValue
+            )
+        } else {
+            UserDefaults.standard.set(
+                try? PropertyListEncoder().encode([value]), forKey: type.rawValue
+            )
+        }
     }
 
-    static func get<T: Codable>(type: CacheType) -> T? {
-        var userData: T?
-        if let data = UserDefaults.standard.value(forKey: type.rawValue) as? Data {
-            userData = try? PropertyListDecoder().decode(T.self, from: data)
-            return userData
-        } else {
-            return userData
+    static func get<T: Codable>(_ type: T.Type, key: CacheType) -> [T]? {
+        var userData: [T]?
+        if let data = UserDefaults.standard.value(forKey: key.rawValue) as? Data {
+            userData = try? PropertyListDecoder().decode([T].self, from: data)
         }
+        return userData
     }
 
     static func remove(type: CacheType) {

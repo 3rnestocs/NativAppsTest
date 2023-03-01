@@ -17,6 +17,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel.reportCompletion = {
+            DispatchQueue.main.async {
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            }
+        }
     }
     
     private func setupUI() {
@@ -26,15 +31,15 @@ class HomeViewController: UIViewController {
     private func setupTableView() {
         tableView.register(UINib(nibName: HomeTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.cellIdentifier)
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.tableFooterView = UIView()
     }
 
-    @IBAction func addButtonTapped(_ sender: UIButton) {
+    @IBAction private func addButtonTapped(_ sender: UIButton) {
         guard let addReportVC = getVC(.addReportVC) as? AddReportViewController else { return }
         if let sheet = addReportVC.sheetPresentationController {
             sheet.detents = [.medium()]
         }
+        addReportVC.delegate = self
         self.present(addReportVC, animated: true, completion: nil)
     }
     
@@ -63,12 +68,10 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        76
-    }
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
+extension HomeViewController: AddReportViewControllerDelegate {
+    func didSave() {
+        viewModel.updateReports()
+    }
 }

@@ -31,3 +31,15 @@ extension UIViewController {
         return viewController
     }
 }
+
+extension Notification.Name {
+    static let didSaveReport = Notification.Name(rawValue: "didSaveReport")
+}
+
+extension String {
+    var firstCapitalized: String {
+        let firstLetter = self.prefix(1).capitalized
+        let remainingLetters = self.dropFirst().lowercased()
+        return firstLetter + remainingLetters
+    }
+}
