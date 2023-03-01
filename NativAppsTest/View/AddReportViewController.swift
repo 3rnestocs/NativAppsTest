@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol AddReportViewControllerDelegate: AnyObject {
     func didSave()
@@ -31,6 +32,7 @@ class AddReportViewController: UIViewController {
             }
         }
     }
+    private let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
     private var viewModel = AddReportViewModel()
     weak var delegate: AddReportViewControllerDelegate?
     
@@ -47,7 +49,7 @@ class AddReportViewController: UIViewController {
     }
     
     private func setupObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSave(_:)), name: .didSaveReport, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSave), name: .didSaveReport, object: nil)
     }
     
     private func setupUI() {
@@ -86,12 +88,60 @@ class AddReportViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    private func checkCameraStatus() {
+        switch cameraAuthorizationStatus {
+        case .authorized:
+            presentCamera()
+        case .restricted, .denied:
+            alertCameraAccessNeeded()
+        default:
+            requestCameraPermission()
+        }
+    }
+
+    private func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+    
+    private func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: {accessGranted in
+            guard accessGranted == true else {
+                self.handleSave()
+                return
+            }
+            self.presentCamera()
+        })
+    }
+    
+    private func alertCameraAccessNeeded() {
+        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)
+        
+        let alert = UIAlertController(
+            title: "Acceso requerido",
+            message: "Se requiere de acceso a la camara de tu dispositivo para hacer uso de esta aplicación.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dar permisos de cámara", style: .cancel, handler: { (alert) -> Void in
+            if let settingsURL = settingsAppURL {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     // MARK: - Actions
-    @objc private func handleSave(_ notification: Notification) {
-        print("T3ST saved")
+    @objc private func handleSave() {
         self.delegate?.didSave()
-        self.dismiss(animated: true)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
     
     @objc private func viewTapped() {
@@ -99,11 +149,7 @@ class AddReportViewController: UIViewController {
     }
     
     @IBAction private func imageButtonTapped(_ sender: UIButton) {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.allowsEditing = true
-        vc.delegate = self
-        present(vc, animated: true)
+        checkCameraStatus()
     }
 
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
