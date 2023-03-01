@@ -174,7 +174,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eW-9e-Fgh">
-                                <rect key="frame" x="118" y="395" width="157" height="40"/>
+                                <rect key="frame" x="118" y="403" width="157" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qg5-7I-fOy"/>
@@ -199,7 +199,7 @@
                             <constraint firstItem="06m-57-ETT" firstAttribute="top" secondItem="CIx-Vf-9as" secondAttribute="bottom" constant="16" id="P03-Ea-eXC"/>
                             <constraint firstItem="06m-57-ETT" firstAttribute="centerX" secondItem="uHH-wV-2Bk" secondAttribute="centerX" id="R0p-9k-Neh"/>
                             <constraint firstItem="2eW-9e-Fgh" firstAttribute="width" secondItem="uHH-wV-2Bk" secondAttribute="width" multiplier="0.4" id="SGQ-vi-Izg"/>
-                            <constraint firstItem="2eW-9e-Fgh" firstAttribute="top" secondItem="06m-57-ETT" secondAttribute="bottom" constant="16" id="VAr-OO-F4X"/>
+                            <constraint firstItem="2eW-9e-Fgh" firstAttribute="top" secondItem="06m-57-ETT" secondAttribute="bottom" constant="24" id="VAr-OO-F4X"/>
                             <constraint firstItem="1FT-Lg-gDT" firstAttribute="centerX" secondItem="uHH-wV-2Bk" secondAttribute="centerX" id="YFB-IB-xrE"/>
                             <constraint firstItem="CIx-Vf-9as" firstAttribute="top" secondItem="1FT-Lg-gDT" secondAttribute="bottom" constant="16" id="aFd-Ue-75I"/>
                             <constraint firstItem="3SA-Ge-O9W" firstAttribute="width" secondItem="uHH-wV-2Bk" secondAttribute="width" multiplier="0.7" id="id9-wx-eTp"/>

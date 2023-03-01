@@ -20,6 +20,8 @@
 		8D8D289D29AFB8EF00A63E57 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D289C29AFB8EF00A63E57 /* Extensions.swift */; };
 		8D8D289F29AFBB2000A63E57 /* AddReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D289E29AFBB2000A63E57 /* AddReportViewController.swift */; };
 		8D8D28A229AFC00E00A63E57 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D28A129AFC00E00A63E57 /* TextField.swift */; };
+		8D8D28A429AFCC2300A63E57 /* AddReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D28A329AFCC2300A63E57 /* AddReportViewModel.swift */; };
+		8D8D28A629AFCEFD00A63E57 /* Cacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D28A529AFCEFD00A63E57 /* Cacher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8D8D289C29AFB8EF00A63E57 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8D8D289E29AFBB2000A63E57 /* AddReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewController.swift; sourceTree = "<group>"; };
 		8D8D28A129AFC00E00A63E57 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		8D8D28A329AFCC2300A63E57 /* AddReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewModel.swift; sourceTree = "<group>"; };
+		8D8D28A529AFCEFD00A63E57 /* Cacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				8D8D289529AFACC000A63E57 /* HomeViewModel.swift */,
+				8D8D28A329AFCC2300A63E57 /* AddReportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			children = (
 				8D8D289C29AFB8EF00A63E57 /* Extensions.swift */,
 				8D8D28A129AFC00E00A63E57 /* TextField.swift */,
+				8D8D28A529AFCEFD00A63E57 /* Cacher.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				8D8D287F29AFA35F00A63E57 /* HomeViewController.swift in Sources */,
 				8D8D287B29AFA35F00A63E57 /* AppDelegate.swift in Sources */,
 				8D8D287D29AFA35F00A63E57 /* SceneDelegate.swift in Sources */,
+				8D8D28A429AFCC2300A63E57 /* AddReportViewModel.swift in Sources */,
+				8D8D28A629AFCEFD00A63E57 /* Cacher.swift in Sources */,
 				8D8D289F29AFBB2000A63E57 /* AddReportViewController.swift in Sources */,
 				8D8D289629AFACC000A63E57 /* HomeViewModel.swift in Sources */,
 				8D8D28A229AFC00E00A63E57 /* TextField.swift in Sources */,

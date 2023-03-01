@@ -27,6 +27,7 @@ class AddReportViewController: UIViewController {
             }
         }
     }
+    private var viewModel = AddReportViewModel()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -90,27 +91,28 @@ class AddReportViewController: UIViewController {
     }
 
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
-        var canSave: Bool = false
+        var hasValidText: Bool = false
         if let textField = descriptionTextField.text, !textField.isEmpty {
             descriptionAlertLabel.isHidden = true
-            canSave = true
+            hasValidText = true
         } else {
             descriptionAlertLabel.isHidden = false
-            canSave = false
+            hasValidText = false
         }
         
+        var hasValidImage: Bool = false
         if currentImage != nil {
             imageAlertLabel.isHidden = true
-            canSave = true
+            hasValidImage = true
         } else {
             imageAlertLabel.isHidden = false
-            canSave = false
+            hasValidImage = false
         }
-        
-        if canSave {
-            guard let text = descriptionTextField.text else { return }
-            let report = Report(image: nil, description: text)
-            print("T3ST save report", report)
+         
+        if hasValidText, hasValidImage {
+            viewModel.saveReport(
+                currentImage?.pngData(), description: descriptionTextField.text
+            )
         }
     }
 }

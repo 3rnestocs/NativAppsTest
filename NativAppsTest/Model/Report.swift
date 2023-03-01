@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Report {
+struct Report: Codable {
     var image: String?
     var description: String
     var createdAt: Date = Date()
