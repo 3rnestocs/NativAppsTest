@@ -28,7 +28,7 @@ class HomeViewModel {
     }
     
     init() {
-        self.reports = dummyReports()
+//        self.reports = dummyReports()
     }
     
     func getReports() -> [Report] {

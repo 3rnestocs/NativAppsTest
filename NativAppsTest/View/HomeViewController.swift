@@ -8,9 +8,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
+    @IBOutlet private(set) weak var tableView: UITableView!
+    @IBOutlet private(set) weak var buttonView: UIView!
     
     private var viewModel = HomeViewModel()
     
@@ -37,7 +37,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.dummyReports().count
+        if viewModel.getReports().isEmpty {
+            tableView.emptyMessage(message: "No hay registros todavia.")
+        } else {
+            tableView.backgroundView = nil
+            return viewModel.getReports().count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +51,7 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setupCell(viewModel.dummyReports()[indexPath.row])
+        cell.setupCell(viewModel.getReports()[indexPath.row])
         return cell
     }
     
